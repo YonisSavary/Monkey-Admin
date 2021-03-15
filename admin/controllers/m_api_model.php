@@ -126,6 +126,9 @@ class $model_name extends Model {
             $path = m_api_model::get_model_path($table)["path"];
         } else {
             $app_dir = Config::get("app_directory");
+            if (is_array($app_dir)){
+                $app_dir = $app_dir[0];
+            }
             if (substr($app_dir, -1) !== "/") $app_dir .= "/";
             $path = $app_dir. "models/".$model_name.".php";
         }
